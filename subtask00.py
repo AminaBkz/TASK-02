@@ -19,3 +19,4 @@ plt.ylabel("y'")
 
 plt.title("True Model | Noisy Data")
 plt.show()
+# BELUGA APOLOGIES ALOT TvT
