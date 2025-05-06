@@ -1,22 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-np.random.seed(42)
+
 x = np.random.uniform(-13, 13, 1000)
 
-y =3*x + 8
+y_noisy = 3*x + 8 + np.random.normal(scale=3, size=1000)
 
-noise = np.random.normal(scale=2, size=y.shape)
-y_noisy = y + noise
-
-np.savez("dataset.npz", x=x, y_noisy=y_noisy)
-
-plt.figure(figsize=(8, 6))
-plt.plot(x, y, color='blue', label='True Line: y = 3x + 8')
-plt.scatter(x, y_noisy, color='red', s=10, alpha=0.5, label='Noisy Data')
+plt.plot(x, 3*x + 8, 'b', label='a(x)')
+plt.scatter(x, y_noisy, c='r', s=10, alpha=0.5, label='Noisy Data')
 plt.xlabel("x")
 plt.ylabel("y'")
-
-plt.title("True Model | Noisy Data")
+plt.title("True Model | Noisy Data - subtask00")
+plt.legend()
 plt.show()
-# BELUGA APOLOGIES ALOT TvT
+
+
+np.savez("dataset.npz", x=x, y_noisy=y_noisy)
